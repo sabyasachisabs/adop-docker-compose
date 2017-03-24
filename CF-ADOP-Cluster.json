@@ -1705,7 +1705,7 @@
               "lvcreate -l 5%VG -n metadata vg-docker\n",
               "sed -i 's/ExecStart\\(.*\\)$/ExecStart\\1 --storage-driver=devicemapper --storage-opt dm.datadev=\\/dev\\/vg-docker\\/data --storage-opt dm.metadatadev=\\/dev\\/vg-docker\\/metadata/g' /usr/lib/systemd/system/docker.service\n",
               "curl -L https://github.com/docker/compose/releases/download/1.7.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose\n",
-			  "export PATH=$PATH:/usr/local/bin\n",
+			  "echo 'export PATH=$PATH:/usr/local/bin' >> ~/.bashrc \n",
               "chmod +x /usr/local/bin/docker-compose\n",
               "systemctl daemon-reload && systemctl restart docker\n",
               "docker run --restart=\"always\" -p 80:80 -d -e TARGET=",
